@@ -15,11 +15,14 @@ namespace Entity_Framework_core_example
         //Database = desired name of database
         //server = server we are connectinig to localdb is included with visual studio
         //Trusted_Connection - indicates that our windows account should be used
-        protected override void OnConfigure(DbContextOptionsBuilder options) {
-            DbContextOptionsBuilder.UseSqlServer("Server = (localdb\\mssqllocaldb;" +
+        protected override void OnConfiguring(DbContextOptionsBuilder options) {
+            options.UseSqlServer("Server = (localdb)\\mssqllocaldb;" +
                                                     "Database=EFCoreExample;" +
                                                     "Trusted_Connection=True;");
         }
-    }
+
+		//tell efcore to track Students in the database
+		public DbSet<Student> Students { get; set; }
+	}
 }
 
