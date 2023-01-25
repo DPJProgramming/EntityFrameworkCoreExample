@@ -17,7 +17,7 @@ namespace Entity_Framework_core_example
 
         public DateTime DateOfBirth { get; set; }
 
-
+        public string EmailAddress { get; set; }
     }
 }
 
